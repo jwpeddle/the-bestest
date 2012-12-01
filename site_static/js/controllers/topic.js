@@ -18,5 +18,9 @@ App.controller('TopicCtrl', [
     $scope.addNewEntry = function(entry) {
       models.Entry.create($routeParams.topic_id, entry);
     };
+
+    $scope.addVote = function(entryId) {
+      console.log("Add vote to entry", entryId);
+    };
   }
 ]);

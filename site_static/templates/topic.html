@@ -28,9 +28,11 @@
   ng-repeat="entry in pagination.getSelection()"
   class="row-fluid">
   <div class="span1"
-    ng-bind="$index + 1 + (pagination.getCurrentPage())*pagination.getElementsPerPage()"></div>
+    ng-bind="$index + 1 + (pagination.getCurrentPage())*pagination.getElementsPerPage()">
+  </div>
   <div class="span10" ng-bind="entry.name"></div>
   <div class="span1" ng-bind="entry.number_of_votes"></div>
+  <div class="btn pull-right" ng-click="addVote(entry.id)">+</div>
 </div>
 
 
