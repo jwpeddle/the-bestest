@@ -22,7 +22,7 @@ class EntryResource(ModelResource):
 
 
 class TopicResource(ModelResource):
-    entries = fields.ToManyField('topics.rest.EntryResource', 'entries', full=True)
+    entries = fields.ToManyField('topics.api.EntryResource', 'entries', full=True)
 
     class Meta:
         queryset = Topic.objects.all()
