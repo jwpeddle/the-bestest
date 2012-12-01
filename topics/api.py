@@ -18,12 +18,13 @@ class EntryResource(ModelResource):
 
 
 class TopicResource(ModelResource):
-    entries = fields.ToManyField('topics.api.EntryResource', 'entries', full=True)
+    entries = fields.ToManyField('topics.rest.EntryResource', 'entries', full=True)
 
     class Meta:
         queryset = Topic.objects.all()
         authentication = Authentication()
         authorization = Authorization()
+        always_return_data = True
 
 
 class VoteResource(ModelResource):
@@ -31,3 +32,4 @@ class VoteResource(ModelResource):
         queryset = Vote.objects.all()
         authentication = Authentication()
         authorization = Authorization()
+        always_return_data = True
