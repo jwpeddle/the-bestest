@@ -4,8 +4,31 @@
   <small>for 2012</small>
 </h1>
 
-<div ng-repeat="entry in topic.entries" class="row-fluid">
-  <div class="span1" ng-bind="$index+1"></div>
+<div class="btn-group">
+  <div
+    class="btn"
+    ng-class="{disabled: pagination.isFirst()}"
+    ng-click="pagination.previousPage()">
+    <i class="icon-chevron-left"></i>
+  </div>
+  <span
+    class="btn disabled">
+    {{'Page'}}
+    {{ pagination.getCurrentPage() + 1}} / {{ pagination.getMaxPage() }}
+  </span>
+  <div
+    class="btn"
+    ng-class="{disabled: pagination.isLast()}"
+    ng-click="pagination.nextPage()">
+    <i class="icon-chevron-right"></i>
+  </div>
+</div>
+
+<div
+  ng-repeat="entry in pagination.getSelection()"
+  class="row-fluid">
+  <div class="span1"
+    ng-bind="$index + 1 + (pagination.getCurrentPage())*pagination.getElementsPerPage()"></div>
   <div class="span10" ng-bind="entry.name"></div>
   <div class="span1" ng-bind="entry.number_of_votes"></div>
 </div>
