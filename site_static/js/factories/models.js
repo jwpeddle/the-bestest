@@ -3,17 +3,24 @@ App.factory('models', [
   'TASTYPIE_BASE',
   function($resource, TASTYPIE_BASE) {
     var Topic,
-        Answer;
+        Entry;
 
-    Topic = $resource(TASTYPIE_BASE + '/topic/:topicId');
+    function toTastyResource(entity, id) {
+      return TASTYPIE_BASE + entity + '/' + id;
+    }
 
-    Answer = $resource(TASTYPIE_BASE + '/answer/:answerId');
-    Answer.create = function(topicId, answer) {
+    Topic = $resource(TASTYPIE_BASE + 'topic/:topicId');
 
-      if (!topicId || !answer) throw new Error("Topic ID and answer are mandatory");
+    Entry = $resource(TASTYPIE_BASE + 'entry/:entryId/');
+    Entry.create = function(topicId, entry) {
 
-      models.Answer.save(
-        {name: answer, topic_id: topicId},
+      if (!topicId || !entry) throw new Error("Topic ID and answer are mandatory");
+
+      Entry.save(
+        {
+          name: entry,
+          topic_id: toTastyResource('topic', topicId)
+        },
         function(response) {
           console.log("Created!");
         }
@@ -22,7 +29,7 @@ App.factory('models', [
 
     return {
       Topic: Topic,
-      Answer: Answer
+      Entry: Entry
     };
   }
   ]);

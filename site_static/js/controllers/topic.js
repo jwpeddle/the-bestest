@@ -7,11 +7,11 @@ App.controller('TopicCtrl', [
     var HARDCODED_SAMPLE_DATA = {
       id: 1,
       name: "What is the best WAY TO SURVIVE A HACKATHON",
-      answers: [
-        {answer: "Caffeine Pills", votes: 1000},
-        {answer: "Red Devil", votes: 900},
-        {answer: "Tim Hortons coffee", votes: 852},
-        {answer: "Coke", votes: 600}
+      entries: [
+        {entry: "Caffeine Pills", votes: 1000},
+        {entry: "Red Devil", votes: 900},
+        {entry: "Tim Hortons coffee", votes: 852},
+        {entry: "Coke", votes: 600}
       ]
     };
 
@@ -20,14 +20,8 @@ App.controller('TopicCtrl', [
       $scope.topic = HARDCODED_SAMPLE_DATA;
     });
 
-    $scope.addNewAnswer = function(answer) {
-      models.Answer.save(
-        //{},
-        {name: answer,
-        topic_id: $routeParams.topic_id},
-        function(response) {
-          console.log("Created!");
-        });
+    $scope.addNewEntry = function(entry) {
+      models.Entry.create($routeParams.topic_id, entry);
     };
   }
 ]);
