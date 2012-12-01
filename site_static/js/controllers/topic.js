@@ -19,5 +19,15 @@ App.controller('TopicCtrl', [
       //TODO Fake data till we have the backend working
       $scope.topic = HARDCODED_SAMPLE_DATA;
     });
+
+    $scope.addNewAnswer = function(answer) {
+      models.Answer.save(
+        //{},
+        {name: answer,
+        topic_id: $routeParams.topic_id},
+        function(response) {
+          console.log("Created!");
+        });
+    };
   }
 ]);

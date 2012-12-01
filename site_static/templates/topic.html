@@ -9,3 +9,14 @@
   <div class="span10">Word</div>
   <div class="span1">999</div>
 </div>
+
+
+<div class="control-group">
+  <input ng-model="newAnswer">
+  <div
+    class="btn"
+    ng-disabled="!newAnswer"
+    ng-click="addNewAnswer(newAnswer)">
+    Add new answer!!!
+  </div>
+</div>
