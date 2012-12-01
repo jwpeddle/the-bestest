@@ -1,0 +1,9 @@
+h1 {
+	text-transform: uppercase;
+}
+
+  h1 small {
+    font-size: 40%;
+    font-weight: bold;
+    display: block;
+  }
