@@ -13,6 +13,7 @@
     <!-- ANGULAR STUFF -->
     <script src='{{ STATIC_URL }}js/app.js'></script>
     <script src='{{ STATIC_URL }}js/controllers/main.js'></script>
+    <script src='{{ STATIC_URL }}js/controllers/topic.js'></script>
 
   </head>
   <body>
@@ -20,9 +21,10 @@
       <div class="row">
         <div class="span8">
           Hello <span ng-bind="namee"></span>
+          <div ng-view></div>
         </div>
       </div>
     </div>
-    {% verbatim %} {{ Don't parse me bro! }}{% endverbatim %}
+    {% verbatim %} {{' Dont parse me bro! '}}{% endverbatim %}
   </body>
 </html>
