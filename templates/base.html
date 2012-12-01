@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ngView">
   <head>
     <title>{{ project_name }}</title>
     <script src='{{ STATIC_URL }}lib/angular/angular.js'></script>
@@ -9,8 +9,18 @@
     <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}lib/bootstrap/font-awesome.css'>
     <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}lib/bootstrap/bootstrap.no-icons.min.css'>
     <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}lib/angular/angular-ui.min.css'>
+    <!-- ANGULAR STUFF -->
+    <script src='{{ STATIC_URL }}js/app.js'></script>
+    <script src='{{ STATIC_URL }}js/controllers/main.js'></script>
+
   </head>
   <body>
-    Hello world
+    <div class="container" ng-controller="MainCtrl">
+      <div class="row">
+        <div class="span8">
+          Hello <span ng-bind="namee"></span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
