@@ -98,8 +98,13 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'tastypie',
+    'autofixture',
     'topics',
 )
+
+# Tastypie
+APPEND_SLASH = False
+TASTYPIE_ALLOW_MISSING_SLASH = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

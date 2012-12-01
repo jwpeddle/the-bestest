@@ -1,6 +1,7 @@
 var App = angular.module('ngView', [
   // Application dependencies
-  'ui'
+  'ui',
+  'ngResource'
   ], [
   '$routeProvider',
   '$locationProvider',

@@ -1,18 +1,15 @@
 App.controller('TopicCtrl', [
   '$scope',
   '$routeParams',
-  function($scope, $routeParams) {
+  'models',
+  function($scope, $routeParams, models) {
 
-    var HARDCODED_SAMPLE_DATA = [
-      {answer: "Caffeine Pills", votes: 1000},
-      {answer: "Red Devil", votes: 900},
-      {answer: "Tim Hortons coffee", votes: 852},
-      {answer: "Coke", votes: 600}
-    ];
+    $scope.topic = models.Topic.get({topicId: $routeParams.topic_id}, function(response) {
+      $scope.topic = response;
+    });
 
-    $scope.answers = HARDCODED_SAMPLE_DATA;
-    $scope.topicName = "What is the best WAY TO SURVICE A HACKATHON?";
-
-    $scope.topicId = $routeParams.topic_id;
+    $scope.addNewEntry = function(entry) {
+      models.Entry.create($routeParams.topic_id, entry);
+    };
   }
 ]);
