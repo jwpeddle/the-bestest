@@ -1,22 +1,23 @@
 {% load verbatim %}<!DOCTYPE html>
 <html ng-app="ngView">
   <head>
-    <title>{{ project_name }}</title>
-    <script src='{{ STATIC_URL }}lib/angular/angular.js'></script>
-    <script src='{{ STATIC_URL }}lib/angular/angular-ui.min.js'></script>
-    <script src='{{ STATIC_URL }}lib/jquery/jquery.js'></script>
-    <script src='{{ STATIC_URL }}lib/bootstrap/bootstrap.min.js'></script>
-    <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}lib/bootstrap/font-awesome.css'>
-    <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}lib/bootstrap/bootstrap.no-icons.min.css'>
-    <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}lib/angular/angular-ui.min.css'>
-    <link rel='stylesheet' type='text-css' href='{{ STATIC_URL }}lib/bootstrap/united.css'>
+    <title>The Bestest</title>
+    <script src='/static/lib/angular/angular.js'></script>
+    <script src='/static/lib/angular/angular-ui.min.js'></script>
+    <script src='/static/lib/jquery/jquery.js'></script>
+    <script src='/static/lib/bootstrap/bootstrap.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/static/lib/bootstrap/font-awesome.css'>
+    <link rel='stylesheet' type='text/css' href='/static/lib/bootstrap/bootstrap.no-icons.min.css'>
+    <link rel='stylesheet' type='text/css' href='/static/lib/angular/angular-ui.min.css'>
+    <link rel='stylesheet' type='text-css' href='/static/lib/bootstrap/united.css'>
     <!-- ANGULAR STUFF -->
-    <script src='{{ STATIC_URL }}js/app.js'></script>
-    <script src='{{ STATIC_URL }}js/controllers/main.js'></script>
-    <script src='{{ STATIC_URL }}js/controllers/topic.js'></script>
+    <script src='/static/js/app.js'></script>
+    <script src='/static/js/controllers/main.js'></script>
+    <script src='/static/js/controllers/topic.js'></script>
 
   </head>
   <body>
+    {% verbatim %}
     <div class="container" ng-controller="MainCtrl">
       <div class="row">
         <div class="span8">
@@ -25,6 +26,6 @@
         </div>
       </div>
     </div>
-    {% verbatim %} {{' Dont parse me bro! '}}{% endverbatim %}
+    {% endverbatim %}
   </body>
 </html>
