@@ -8,13 +8,13 @@ var App = angular.module('ngView', [
 
     var routerService = {
       invalidURL: '/404',
-      topicURL: '/:topic_id'
+      topicURL: '/topic/:topic_id'
     };
 
     $locationProvider.html5Mode(true);
 
     $routeProvider.when(routerService.topicURL, {
-      templateUrl: '/route/to/templates.topic.html',
+      templateUrl: '/static/templates/topic.html',
       controller: 'TopicCtrl'
     });
 

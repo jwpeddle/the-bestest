@@ -15,6 +15,7 @@
     <!-- ANGULAR STUFF -->
     <script src='/static/js/app.js'></script>
     <script src='/static/js/controllers/main.js'></script>
+    <script src='/static/js/controllers/topic.js'></script>
 
   </head>
   <body>
@@ -23,6 +24,7 @@
       <div class="row">
         <div class="span8">
           Hello <span ng-bind="namee"></span>
+          <div ng-view></div>
         </div>
       </div>
     </div>
