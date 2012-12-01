@@ -20,12 +20,13 @@
   </head>
   <body>
     {% verbatim %}
-    <div class="container" ng-controller="MainCtrl">
-      <div class="row">
+    <div class="container-fluid" ng-controller="MainCtrl">
+      <div class="row-fluid">
         <div class="span8">
           Hello <span ng-bind="namee"></span>
           <div ng-view></div>
         </div>
+        <div class="span4">Sidebar</div>
       </div>
     </div>
     {% endverbatim %}
