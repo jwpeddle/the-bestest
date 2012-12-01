@@ -2,14 +2,14 @@ from django.db import models
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=20)
 
     def __unicode__(self):
         return self.name
 
 
 class Entry(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=30)
     topic = models.ForeignKey(Topic, related_name='entries')
 
     def __unicode__(self):
