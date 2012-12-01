@@ -28,7 +28,7 @@ SITE_ID = 1
 
 USE_I18N = False
 USE_L10N = True
-USE_TZ = True
+USE_TZ = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
