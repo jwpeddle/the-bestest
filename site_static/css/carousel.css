@@ -1,0 +1,44 @@
+.angular-bootstrap-caroursel {
+	margin: -10px 0 0 0;
+}
+
+.angular-bootstrap-caroursel .carousel-inner {
+	margin: 0 50px 0 0; 
+} 
+
+.angular-bootstrap-caroursel .lead {
+	margin: 0;
+}
+
+.angular-bootstrap-caroursel .arrow-controls {
+	display: inline-block;
+	position: absolute;
+	top: 1px;
+	right: 0;
+}
+
+.angular-bootstrap-caroursel a {
+  text-decoration: none;
+}
+
+.angular-bootstrap-caroursel .block-controls ul,
+.angular-bootstrap-caroursel .block-controls li {
+	list-style-type: none;
+	margin: 0 5px 0 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.angular-bootstrap-caroursel .block-controls i {
+  margin: 0;
+}
+
+.angular-bootstrap-caroursel .block-controls a {
+	text-decoration: none;
+  background-color: transparent;
+  line-height: 0;
+}
+
+.angular-bootstrap-caroursel .block-controls a.active {
+	background-color: #ddd;
+}

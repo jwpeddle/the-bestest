@@ -1,0 +1,46 @@
+<div 
+  id="{{id}}" 
+  class="angular-bootstrap-caroursel carousel slide" 
+  ng-hide="failed">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div 
+      ng-repeat="item in items"
+      ng-class="{'active':$index==0}"
+      class="item lead">
+      {{item}}
+    </div>
+  </div>
+  <div
+    ng-hide="hideArrowControls" 
+    class="arrow-controls">
+    <a 
+      class="left lead" 
+      href="#{{id}}" 
+      data-slide="prev">
+      <i class="icon-chevron-left"></i>
+    </a>
+    <a 
+      class="right lead" 
+      href="#{{id}}" 
+      data-slide="next">
+      <i class="icon-chevron-right"></i>
+    </a>
+  </div>
+  <div 
+    ng-hide="hideBlockControls"
+    class="block-controls" 
+    data-target="{{id}}">
+    <ul>
+      <li 
+        ng-repeat="item in items">
+        <a 
+          ng-class="{'active':$index==tickerIndex}"
+          href="#{{item}}"
+          ng-click="skipTo($index)">
+          <i class="icon-stop"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
