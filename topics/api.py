@@ -10,6 +10,10 @@ class EntryResource(ModelResource):
     votes = fields.ToManyField('topics.api.VoteResource', 'votes', full=True, null=True)
     topic_id = fields.ToOneField('topics.api.TopicResource', 'topic')
 
+    def dehydrate(self, bundle):
+        bundle.data['number_of_votes'] = bundle.obj.number_of_votes
+        return bundle
+
     class Meta:
         queryset = Entry.objects.all()
         authentication = Authentication()

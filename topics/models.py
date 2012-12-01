@@ -16,8 +16,8 @@ class Entry(models.Model):
         return self.name
 
     @property
-    def votes(self):
-        return self.vote_set.count()
+    def number_of_votes(self):
+        return self.votes.count()
 
 
 class Vote(models.Model):
