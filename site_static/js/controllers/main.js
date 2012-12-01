@@ -1,6 +1,6 @@
 App.controller('MainCtrl', [
   '$scope',
   function($scope) {
-    $scope.namee = "World";
+    $scope.favourites = ['Test1', 'Test2','Test3'];
   }
 ]);
