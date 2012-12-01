@@ -1,4 +1,3 @@
-the-bestest
-===========
+AngelhackTO - The Bestest
 
-the-bestest
+Greg Pike, Diego Escalante, Jason Peddle
