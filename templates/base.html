@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load verbatim %}<!DOCTYPE html>
 <html ng-app="ngView">
   <head>
     <title>{{ project_name }}</title>
@@ -22,5 +22,6 @@
         </div>
       </div>
     </div>
+    {% verbatim %} {{ Don't parse me bro! }}{% endverbatim %}
   </body>
 </html>
