@@ -20,16 +20,31 @@
 
   </head>
   <body>
-    {% verbatim %}
-    <div class="container-fluid" ng-controller="MainCtrl">
+  {% verbatim %}
+  <div ng-controller="MainCtrl">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand bestest-logo" href="#">The Bestest</a>
+          <ul class="nav pull-right">
+            <li><a href="#"><i class="icon-user"></i>Joe User</a></li>
+          </ul>
+        </div>
+      </div>
+    </div data-ending="navbar">
+
+    <div class="container-fluid">
       <div class="row-fluid">
         <div class="span8">
-          Hello <span ng-bind="namee"></span>
           <div ng-view></div>
-        </div>
-        <div class="span4">Sidebar</div>
-      </div>
-    </div>
-    {% endverbatim %}
+        </div data-ending="span8">
+        <div class="span4">
+          Sidebar
+        </div data-ending="span4">
+      </div data-ending="row">
+    </div data-ending="container">
+  </div data-ending="MainCtrl">
+  {% endverbatim %}
   </body>
 </html>
