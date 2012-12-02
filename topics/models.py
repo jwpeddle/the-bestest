@@ -19,6 +19,10 @@ class Entry(models.Model):
     def number_of_votes(self):
         return self.votes.count()
 
+    @property
+    def last_voted(self):
+        return self.votes.order_by('-date')[0].date
+
 
 class Vote(models.Model):
     entry = models.ForeignKey(Entry, related_name='votes')

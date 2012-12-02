@@ -7,12 +7,10 @@ from topics.models import Entry, Topic, Vote, Tag
 
 
 class EntryResource(ModelResource):
-    votes = fields.ToManyField('topics.api.VoteResource', 'votes', full=True, null=True)
+    votes = fields.ToManyField('topics.api.VoteResource', 'votes', null=True)
     topic_id = fields.ToOneField('topics.api.TopicResource', 'topic')
-
-    def dehydrate(self, bundle):
-        bundle.data['number_of_votes'] = bundle.obj.number_of_votes
-        return bundle
+    number_of_votes = fields.IntegerField(attribute='number_of_votes')
+    last_voted = fields.DateTimeField(attribute='last_voted')
 
     class Meta:
         queryset = Entry.objects.all()
