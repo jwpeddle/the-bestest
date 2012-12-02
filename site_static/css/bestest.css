@@ -16,6 +16,13 @@ h1 {
     display: block;
   }
 
+/* PAGINATION */
+.pagination .page-numbers {
+  background: #ffffff;
+  border-top: 0;
+  border-bottom: 0
+}
+
 /* ADVERTISEMENTS */
 .advertise-here-link {
   display: block;

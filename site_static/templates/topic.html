@@ -4,7 +4,7 @@
   <small>for 2012</small>
 </h1>
 
-<div class="btn-group">
+<div class="pagination btn-group">
   <div
     class="btn"
     ng-class="{disabled: pagination.isFirst()}"
@@ -12,7 +12,7 @@
     <i class="icon-chevron-left"></i>
   </div>
   <span
-    class="btn disabled">
+    class="btn disabled page-numbers">
     {{'Page'}}
     {{ pagination.getCurrentPage() + 1}} / {{ pagination.getMaxPage() }}
   </span>
