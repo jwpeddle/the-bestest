@@ -4,10 +4,11 @@ App.controller('TopicCtrl', [
   'models',
   'pagination',
   '$timeout',
+  '$rootScope',
   'topicService',
   'VOTES_REFRESH_INTERVAL',
   function($scope, $routeParams, models, pagination, $timeout,
-          topicService, VOTES_REFRESH_INTERVAL) {
+          $rootScope, topicService, VOTES_REFRESH_INTERVAL) {
 
     $scope.pagination = pagination;
 
@@ -23,7 +24,18 @@ App.controller('TopicCtrl', [
     $scope.topic = getTopicInfo();
 
     $scope.addNewEntry = function(entry) {
+      $scope.newEntry = "";
       models.Entry.create($routeParams.topic_id, entry);
+    };
+
+    $scope.addNewTag = function(tag) {
+      $scope.topic.tags.push({name: tag});
+      $scope.newTag = "";
+      models.Tag.create($routeParams.topic_id, tag);
+    };
+
+    $scope.removeTag = function(topic, tag) {
+      models.Topic.removeTag(topic, tag);
     };
 
     $scope.addVote = function(entry) {
@@ -58,6 +70,9 @@ App.controller('TopicCtrl', [
 // Do this dynamically
 $scope.topic.location = 'St. John\'s';
 $scope.topic.year = 2011;
+        if (!!response.tags && response.tags.length) {
+          $rootScope.$broadcast("bestest.tags.loaded", response.tags);
+        }
         refreshEntries(response.entries);
       });
     }

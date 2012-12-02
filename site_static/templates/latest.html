@@ -1,0 +1,8 @@
+<div>
+  <h3>Latest votes</h3>
+  <ul>
+    <li ng-repeat="entry in latestEntries">
+    {{ entry.name }} for <a href="/{{ entry.topic_id }}">{{entry.topic.name}}</a> was voted {{ entry.last_voted | momentDate}}
+    </li>
+  </ul>
+</div>

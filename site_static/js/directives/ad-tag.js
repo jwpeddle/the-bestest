@@ -17,11 +17,11 @@ App.directive('adTag', function() {
       scope.height = 250;
 
       element.css('width',scope.width);
-      
+
       var addDimension = function(dimension,value) {
         if (!!value) {
           if (!_.isNumber(value))
-            value = parseInt(value, 10)
+            value = parseInt(value, 10);
           scope[dimension] = value;
         }
       };
@@ -42,8 +42,8 @@ App.directive('adTag', function() {
       var houseAd = '/static/ads/house-ad.jpg';
       // Display the house ad by default
       scope.displayAd = houseAd;
-      // Filter by ad unit 
-      ads = _.filter(ads, function(ad) { return ad.ad_unit==='The_Best' });
+      // Filter by ad unit
+      ads = _.filter(ads, function(ad) { return ad.ad_unit==='The_Best'; });
       // Filter by tag
       var targetedTags = scope.$eval(attrs.tags);
       // Will return no ads when there are targeted tags and no matching ad tags
@@ -56,12 +56,12 @@ App.directive('adTag', function() {
                 }
                 // If this unit requires a tag and there isn't one, don't show this ad
                 if (_.size(ad.tags)>0) return false;
-                return true;    
+                return true;
               });
-      
+
       if (_.size(ads)>0) {
         var randomAd = _.random(_.size(ads)-1);
-        scope.displayAd = ads[randomAd].ad; 
+        scope.displayAd = ads[randomAd].ad;
       }
       // End of silly hack
 
@@ -72,6 +72,10 @@ App.directive('adTag', function() {
       // });
 
       // googletag.cmd.push(function() { googletag.display(scope.adUnitDivId); });
+
+      scope.$on("bestest.tags.loaded", function(m, tags) {
+        console.log("Loaded Topic Tags", tags);
+      });
     }
-  }
+  };
 });

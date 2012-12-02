@@ -1,16 +1,35 @@
 App.factory('models', [
   '$resource',
+  '$http',
   '$rootScope',
   'TASTYPIE_BASE',
-  function($resource, $rootScope, TASTYPIE_BASE) {
+  function($resource, $http, $rootScope, TASTYPIE_BASE) {
     var Topic,
-        Entry;
+        Entry,
+        Vote,
+        Tag;
 
     function toTastyResource(entity, id) {
       return TASTYPIE_BASE + entity + '/' + id;
     }
 
     Topic = $resource(TASTYPIE_BASE + 'topic/:topicId');
+    Topic.removeTag = function(topic, tag) {
+      var tags;
+
+      if (!topic || !tag) throw new Error("Topic and tag are mandatory");
+
+      tags = _.filter(topic.tags, function(t) {
+        return t.name !== tag.name;
+      });
+
+      $http.put(toTastyResource('topic', topic.id), {
+        tags: _.map(tags, function(tag) {return toTastyResource('tag', tag.id);}),
+        entries: topic.entries
+      }).success(function(response) {
+        console.log("Deleted tag from topic");
+      });
+    };
 
     Entry = $resource(TASTYPIE_BASE + 'entry/:entryId/');
     Entry.create = function(topicId, entry) {
@@ -47,10 +66,29 @@ App.factory('models', [
       );
     };
 
+    Tag = $resource(TASTYPIE_BASE + 'tag/:tagId/');
+    Tag.create = function(topicId, tag) {
+
+      if (!topicId || !tag) throw new Error("Topic ID is mandatory");
+
+      $rootScope.$broadcast('bestest.models.tag.willCreate', tag);
+
+      Tag.save(
+        {
+          name: tag,
+          topic_id: toTastyResource('topic', topicId)
+        },
+        function(response) {
+
+        }
+      );
+    };
+
     return {
       Topic: Topic,
       Entry: Entry,
-      Vote: Vote
+      Vote: Vote,
+      Tag: Tag
     };
   }
   ]);

@@ -13,13 +13,19 @@ var App = angular.module('ngView', [
       topicURL: '/:topic_id',
       topicByYearURL: '/:topic_id/:year',
       topicByMonthURL: '/:topic_id/:year/:month',
-      advertiseURL: '/advertise'
+      advertiseURL: '/advertise',
+      latestURL: '/latest'
     };
 
     $locationProvider.html5Mode(true);
 
     $routeProvider.when(routerService.advertiseURL, {
       templateUrl: '/static/templates/advertise.html'
+    });
+
+    $routeProvider.when(routerService.latestURL, {
+      templateUrl: '/static/templates/latest.html',
+      controller: 'LatestCtrl'
     });
 
     $routeProvider.when(routerService.topicURL, {

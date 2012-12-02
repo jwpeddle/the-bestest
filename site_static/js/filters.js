@@ -13,3 +13,19 @@ App.filter('lastVoted', function(){
     return moment(lastVote).fromNow();
   };
 });
+
+App.filter('momentDate', function() {
+  return function(date) {
+    if (!date) return "";
+
+    return moment(date).fromNow();
+  };
+});
+
+App.filter('idFromTasty', function() {
+  return function(value) {
+    if (!value) return null;
+
+    return value.split('/').slice(-1)[0];
+  };
+});
