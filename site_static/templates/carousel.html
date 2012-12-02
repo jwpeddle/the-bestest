@@ -8,7 +8,7 @@
       ng-repeat="item in items"
       ng-class="{'active':$index==0}"
       class="item lead">
-      {{item}}
+      <a href="{{item.url}}">What is your favourite {{item.text}}?</a>
     </div>
   </div>
   <div
@@ -36,7 +36,6 @@
         ng-repeat="item in items">
         <a 
           ng-class="{'active':$index==tickerIndex}"
-          href="#{{item}}"
           ng-click="skipTo($index)">
           <i class="icon-stop"></i>
         </a>

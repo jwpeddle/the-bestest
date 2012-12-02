@@ -24,10 +24,19 @@ h1 {
 }
 
 /* CAROUSEL */
+.angular-bootstrap-caroursel {
+  margin: 10px 0;
+}
+
 .favourites-lead {
   margin-bottom: 0;
 }
 
-.carousel a.active {
+.carousel .item a {
+  color: #333;
+}
+
+.carousel a.active,
+.carousel .item a:hover {
   color: #97310E;
 }

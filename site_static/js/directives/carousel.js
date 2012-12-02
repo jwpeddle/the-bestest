@@ -66,7 +66,7 @@ App.directive('carousel', function() {
       element.bind('slid',
         function(e) {
           setTickerIndex(element.find('.item.active').index());
-          //scope.$apply();
+          scope.$apply();
         }
       );
 
