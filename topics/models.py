@@ -41,3 +41,6 @@ class Vote(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=20)
     topics = models.ManyToManyField(Topic, related_name='tags')
+
+    def __unicode__(self):
+        return self.name
