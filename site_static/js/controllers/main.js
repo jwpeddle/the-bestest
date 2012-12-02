@@ -16,6 +16,8 @@ App.controller('MainCtrl', [
   			if (isBurger) {
   				$scope.favourites = [{text:'burrito in Toronto',url:''}, {text:'milkshake in Toronto',url:''}, {text:'fast food burger in Toronto',url:''},{text:'roti in Toronto',url:''}];
   				$scope.inToronto = true;
+  				$scope.tags = ['Burger'];
+  				console.log('T');
   			}
 
   			if (isDrag) {
@@ -31,7 +33,6 @@ App.controller('MainCtrl', [
 			$scope.favourites = favoritesDefault;
 		}
   	});
-    
-    //$scope.tags = ['coffee','boogers'];
+
   }
 ]);

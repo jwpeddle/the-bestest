@@ -32,7 +32,7 @@ App.directive('adTag', function() {
       // Hackathon Hack
       // Typically these ads would be loaded directly from DFP
       var ads = [
-        {ad:'/static/ads/coffee.jpg', tags:['coffee'], ad_unit:'The_Best'},
+        {ad:'/static/ads/burger.jpg', tags:['Burger'], ad_unit:'The_Best'},
         {ad:'/static/ads/ambassador-ad.png', tags:[], ad_unit:'The_Best'},
         {ad:'/static/ads/chango-ad.png', tags:[], ad_unit:'The_Best'},
         {ad:'/static/ads/extreme-startup-ad.png', tags:[], ad_unit:'The_Best'},
@@ -45,24 +45,34 @@ App.directive('adTag', function() {
       // Filter by ad unit
       ads = _.filter(ads, function(ad) { return ad.ad_unit==='The_Best'; });
       // Filter by tag
-      var targetedTags = scope.$eval(attrs.tags);
-      // Will return no ads when there are targeted tags and no matching ad tags
-      ads = _.filter(ads, function(ad) {
-                // If this ad has no tags to target we return true and the ad is good to show
-                if (!!targetedTags && _.size(targetedTags)>0) {
-                  // Only show this ad if there is no ad tag require or the ad tag matches the tag provided
-                  if (_.size(ad.tags)>0 && _.size(_.intersection(targetedTags,ad.tags))>0) return true;
-                  return false;
-                }
-                // If this unit requires a tag and there isn't one, don't show this ad
-                if (_.size(ad.tags)>0) return false;
-                return true;
-              });
+      scope.$watch(attrs.tags, function(targetedTags) {
+        if (!!targetedTags) {
+          refreshAds(targetedTags);  
+        }
+      });
 
-      if (_.size(ads)>0) {
-        var randomAd = _.random(_.size(ads)-1);
-        scope.displayAd = ads[randomAd].ad;
+      function refreshAds(targetedTags) {
+        console.log(targetedTags);
+        // Will return no ads when there are targeted tags and no matching ad tags
+        ads = _.filter(ads, function(ad) {
+                  // If this ad has no tags to target we return true and the ad is good to show
+                  if (!!targetedTags && _.size(targetedTags)>0) {
+                    // Only show this ad if there is no ad tag require or the ad tag matches the tag provided
+                    if (_.size(ad.tags)>0 && _.size(_.intersection(targetedTags,ad.tags))>0) return true;
+                    return false;
+                  }
+                  // If this unit requires a tag and there isn't one, don't show this ad
+                  if (_.size(ad.tags)>0) return false;
+                  return true;
+                });
+
+        if (_.size(ads)>0) {
+          var randomAd = _.random(_.size(ads)-1);
+          scope.displayAd = ads[randomAd].ad;
+        }
+
       }
+
       // End of silly hack
 
       // googletag.cmd.push(function() {

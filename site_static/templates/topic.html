@@ -41,13 +41,15 @@
     <div class="span1 rank text-right"
       ng-bind="$index + 1 + (pagination.getCurrentPage())*pagination.getElementsPerPage()">
     </div>
-    <div class="span9 name" ng-bind="entry.name"></div>
+    <div class="span9 name">{{entry.name}}<div ng-show="entry.number_of_votes"  class="muted" style="font-size: 10px; display: block; margin-top: -10px; margin-bottom: -10px;">Last voted {{ entry.last_voted | momentDate }}</div>
+      <small ng-hide="entry.number_of_votes">This item has no votes</small>
+    <small ng-hide="entry.number_of_votes">This item has no votes</small></div>
     <div class="span1 votes text-right" ng-bind="entry.number_of_votes"></div>
     <div class="span1 vote-up" ng-click="addVote(entry)"><i class="icon-sort-up"></i></div>
       <div class="span11 offset1 expanded-row hide" toggle="expandAnswerId==$index">
         <span class="label label-info">Vote Up</span>
         <span class="label label-info">Show Comments</span>
-      <small ng-show="entry.number_of_votes">Last voted {{ entry | lastVoted }}</small>
+      <small ng-show="entry.number_of_votes">Last voted {{ entry.last_voted | momentDate }}</small>
       <small ng-hide="entry.number_of_votes">This item has no votes</small>
       </div>
   </div>
