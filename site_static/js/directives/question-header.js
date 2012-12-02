@@ -3,7 +3,7 @@ App.directive('questionHeader', function(){
     restrict: 'E',
     templateUrl: '/static/templates/question-header.html',
     link: function(scope, element, attrs) {
-      
+
       if (!attrs.ask) {
         console.error('No name given for question directive');
         return false;
@@ -34,9 +34,7 @@ App.directive('questionHeader', function(){
       });
 
       scope.$watch(attrs.year, function(year) {
-        if (!!year) {
-          scope.year = year;
-        }
+        scope.year = year;
       });
 
       scope.$watch(attrs.location, function(place) {
