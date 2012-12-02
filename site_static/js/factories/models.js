@@ -17,13 +17,15 @@ App.factory('models', [
 
       if (!topicId || !entry) throw new Error("Topic ID and answer are mandatory");
 
+      $rootScope.$broadcast('bestest.models.entry.willCreate', entry);
+
       Entry.save(
         {
           name: entry,
           topic_id: toTastyResource('topic', topicId)
         },
         function(response) {
-          $rootScope.$broadcast('bestest.models.entry.created', response);
+
         }
       );
     };
@@ -33,12 +35,14 @@ App.factory('models', [
 
       if (!entryId) throw new Error("Answer ID is mandatory");
 
+      $rootScope.$broadcast('bestest.models.vote.willCreate');
+
       Vote.save(
       {
         entry_id: toTastyResource('entry', entryId)
       },
       function(response) {
-        $rootScope.$broadcast('bestest.models.vote.created', response);
+
       }
       );
     };

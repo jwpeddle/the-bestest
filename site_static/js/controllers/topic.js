@@ -16,8 +16,9 @@ App.controller('TopicCtrl', [
       models.Entry.create($routeParams.topic_id, entry);
     };
 
-    $scope.addVote = function(answerId) {
-      models.Vote.create(answerId);
+    $scope.addVote = function(entry) {
+      entry.number_of_votes++;
+      models.Vote.create(entry.id);
     };
 
     $scope.$on("bestest.models.entry.created", function(m, entry) {
