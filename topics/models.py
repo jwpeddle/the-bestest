@@ -28,6 +28,9 @@ class Vote(models.Model):
     entry = models.ForeignKey(Entry, related_name='votes')
     date = models.DateTimeField()
 
+    class Meta:
+        ordering = ['-date']
+
     def __unicode__(self):
         return "%s (%s)" % (self.entry.name, self.date)
 

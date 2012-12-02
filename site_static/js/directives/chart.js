@@ -1,22 +1,31 @@
 App.directive('chart', [
-  function() {
+  '$http',
+  function($http) {
     return {
       restrict: 'E',
-      templateUrl: '/static/templates/chart.html',
       link: function(scope, elem, attrs) {
         scope.$watch(attrs.topic, function(topic) {
-          //if (topic && topic.entries) {
-            //for (var e = 0; e < topic.entries.length; e++) {
-              //var entry = topic.entries[e]; 
-              //var aggregate = [];
-              //for (var v = 0; v < entry.votes.length; v++) {
-                //var vote = entry.votes[v];
-                //var mdate = moment(vote.date);
-                //aggregate.push(mdate.format('YYYY-MM'));
-              //}
-              //console.log(_.countBy(aggregate, function(mdate){return mdate}));
-            //}
-          //}
+          if (topic && topic.entries) {
+            var entries = topic.entries.slice(0, 3);
+            for (var e = 0; e < entries.length; e++) {
+              var entry = angular.copy(entries[e]);
+              var votes = $http.get('/api/v1/vote', {
+                params: {entry_id: entry.id},
+              })
+              .success(function(response) {
+                entry.votes = response.objects;
+                var aggregate = [];
+                for (var v = 0; v < entry.votes.length; v++) {
+                  var vote = entry.votes[v];
+                  var mdate = moment(vote.date);
+                  aggregate.push(mdate.format('YYYYMM'));
+                }
+                aggregate = _.countBy(aggregate, function(yyyymm){return moment(yyyymm, 'YYYYMM').valueOf()});
+                aggregate = _.map(aggregate, function(value, key){return [key, value]});
+                $.plot(elem.find('.chart'), [aggregate], {xaxis: {mode: "time", minTickSize: [1, "month"]}});
+              });
+            }
+          }
         }, true);
       }
     }
