@@ -18,6 +18,10 @@ var App = angular.module('ngView', [
 
     $locationProvider.html5Mode(true);
 
+    $routeProvider.when(routerService.advertiseURL, {
+      templateUrl: '/static/templates/advertise.html'
+    });
+
     $routeProvider.when(routerService.topicURL, {
       templateUrl: '/static/templates/topic.html',
       controller: 'TopicCtrl'
@@ -35,10 +39,6 @@ var App = angular.module('ngView', [
 
     $routeProvider.when(routerService.invalidURL, {
       templateUrl: '/static/templates/404.html'
-    });
-
-    $routeProvider.when(routerService.advertiseURL, {
-      templateUrl: '/static/templates/advertise.html'
     });
 
     $routeProvider.otherwise({
