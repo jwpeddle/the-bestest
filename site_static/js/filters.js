@@ -21,3 +21,11 @@ App.filter('momentDate', function() {
     return moment(date).fromNow();
   };
 });
+
+App.filter('idFromTasty', function() {
+  return function(value) {
+    if (!value) return null;
+
+    return value.split('/').slice(-1)[0];
+  };
+});

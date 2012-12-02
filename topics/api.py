@@ -17,6 +17,7 @@ class EntryResource(ModelResource):
         authentication = Authentication()
         authorization = Authorization()
         always_return_data = True
+        ordering = ['-last_voted']
 
 
 class TopicResource(ModelResource):

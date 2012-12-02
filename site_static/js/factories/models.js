@@ -20,7 +20,6 @@ App.factory('models', [
       if (!topic || !tag) throw new Error("Topic and tag are mandatory");
 
       tags = _.filter(topic.tags, function(t) {
-        console.log(t.name, tag.name);
         return t.name !== tag.name;
       });
 
