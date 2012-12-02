@@ -47,3 +47,27 @@ h1 {
 .carousel .item a:hover {
   color: #97310E;
 }
+
+/* TWITTER */
+.twitter-avatar {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+.twitter-row {
+  padding: 4px 4px 4px 64px;
+  position: relative;
+}
+
+.twitter-row.alt {
+  background: #f6f6f6;
+}
+
+.twitter-logo,
+.twitter-row .handle:hover {
+  color: #9AE4E8;
+}

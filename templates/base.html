@@ -6,6 +6,7 @@
     <script src="/static/lib/angular/angular.js"></script>
     <script src="/static/lib/angular/angular-ui.min.js"></script>
     <script src="/static/lib/angular/angular-resource.min.js"></script>
+    <script src="/static/lib/angular/angular-sanitize.min.js"></script>
     <script src="/static/lib/bootstrap/bootstrap.min.js"></script>
     <script src="/static/lib/underscore/underscore.js"></script>
     <script src="/static/lib/moment/moment.min.js"></script>
@@ -32,6 +33,7 @@
     <script src="/static/js/directives/carousel.js"></script>
     <script src="/static/js/directives/chart.js"></script>
     <script src="/static/js/directives/toggle.js"></script>
+    <script src="/static/js/directives/twitter-questions.js"></script>
 
   </head>
   <body>
@@ -66,7 +68,15 @@
             <small class="advertise-here-link"><a href="/advertise">Advertise Here</a></small>
           </ad-tag>
 
-          <h3>People on <i style="color: #9AE4E8;" class="icon-twitter"></i> are asking...</h3>
+          <h3>People on <i class="icon-twitter twitter-logo" title="Twitter"></i> are asking...</h3>
+
+          <twitter-questions>
+            <div ng-repeat="tweet in tweets" class="twitter-row clearfix" ng-class="{'alt':$index%2!=0}">
+              <a href="http://twitter.com/{{tweet.handle}}"><img ng-src="/static/twitter-profiles/{{tweet.handle}}.jpg" class="pull-left twitter-avatar"></a>
+              <small><a href="http://twitter.com/{{tweet.handle}}" class="handle muted">@{{tweet.handle}}</a></small><br>
+              <span ng-bind-html="parseTweet(tweet.quote)"></span>
+            </div>
+          </twitter-questions>
 
         </div>
       </div>
