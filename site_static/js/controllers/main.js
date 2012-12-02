@@ -8,12 +8,13 @@ App.controller('MainCtrl', [
   		if (!! topic && !!topic.tags) {
   			$scope.favourites = null;
 
-  			var isBurger = !!_.find(topic.tags, function(tag){ return tag ==="burger" });
-  			var isDrag = !!_.find(topic.tags, function(tag){ return tag ==="drag" });
-  			var isEreader = !!_.find(topic.tags, function(tag){ return tag ==="ereader" });
+  			var isBurger = !!_.find(topic.tags, function(tag){ return tag ==="Burger" });
+  			var isDrag = !!_.find(topic.tags, function(tag){ return tag ==="Drag" });
+  			var isEreader = !!_.find(topic.tags, function(tag){ return tag ==="eReader" });
 
   			if (isBurger) {
   				$scope.favourites = [{text:'burrito',url:''}, {text:'milkshake',url:''}, {text:'fast food burger',url:''},{text:'roti',url:''}];
+  				$scope.inToronto = true;
   			}
 
   			if (isDrag) {

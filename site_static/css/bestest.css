@@ -155,3 +155,7 @@ h1 small.pull-right {
 .entry-selected {
   background-color: orange;
 }
+
+.location-targeting strong {
+  font-size: 150%;
+}
