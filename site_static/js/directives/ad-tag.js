@@ -39,7 +39,7 @@ App.directive('adTag', function() {
         {ad:'/static/ads/microsoft-ad.png', tags:[], ad_unit:'The_Best'},
         {ad:'/static/ads/vm-farms.png', tags:[], ad_unit:'The_Best'}
       ];
-      // Filter by ad unit
+      // Filter by ad unit 
       ads = _.filter(ads, function(ad) { return ad.ad_unit==='The_Best' });
       // Filter by tag
       ads = _.filter(ads, function(ad) {
