@@ -1,7 +1,7 @@
 import datetime
 from autofixture import generators, register, AutoFixture
 
-from topics import Vote
+from topics.models import Vote
 
 
 class DateTimeGenerator(generators.DateTimeGenerator):
@@ -11,7 +11,7 @@ class DateTimeGenerator(generators.DateTimeGenerator):
 
 class VoteAutoFixture(AutoFixture):
     field_values = {
-        'date': generators.DateTimeGenerator(),
+        'date': DateTimeGenerator(),
     }
 
 
