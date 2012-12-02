@@ -17,6 +17,7 @@ App.controller('VisualizerCtrl', [
         });
       });
       refreshEntries($scope.topic.entries);
+      $scope.addToAggregates(angular.copy($scope.topic.entries[0]));
     });
 
     $scope.aggregates = [];
