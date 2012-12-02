@@ -8,12 +8,15 @@ App.directive('twitterQuestions',['$filter',function($filter){
           {handle:'BellaKamarudin', quote: 'What is the best way to deal with stress? — eat chocolate http://ask.fm/a/1fpjq546'}
         ];
 
-      function wrap( str ) {
+      function wrapA( str ) {
           return '<a href="' + str + '">' + str + '<\/a>';
+      };
+      function wrapStrong( str ) {
+          return '<strong>' + str + '<\/strong>';
       };
 
       scope.parseTweet = function (tweet) {
-        return tweet.replace(/\bhttp[^ ]+/ig, wrap);
+        return tweet.replace(/\bhttp[^ ]+/ig, wrapA).replace(/\bwhat is the best+/ig, wrapStrong);
       };
     }
   }

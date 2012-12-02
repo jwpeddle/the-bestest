@@ -39,25 +39,30 @@ App.directive('adTag', function() {
         {ad:'/static/ads/microsoft-ad.png', tags:[], ad_unit:'The_Best'},
         {ad:'/static/ads/vm-farms.png', tags:[], ad_unit:'The_Best'}
       ];
+      var houseAd = '/static/ads/house-ad.jpg';
+      // Display the house ad by default
+      scope.displayAd = houseAd;
       // Filter by ad unit 
       ads = _.filter(ads, function(ad) { return ad.ad_unit==='The_Best' });
       // Filter by tag
+      var targetedTags = scope.$eval(attrs.tags);
+      // Will return no ads when there are targeted tags and no matching ad tags
       ads = _.filter(ads, function(ad) {
                 // If this ad has no tags to target we return true and the ad is good to show
-                if (!!attrs.tag) {
-                  // If this ad requires a tag and there no tag for this unit we do not want to show it.
-                  if (_.size(ad.tags)<1) return false;
-                  // Let's assume we do not show this ad unless we find an ad tag that matches the tag specified for this unit
-                  var validTag = false;
-                  _.each(ad.tags,function(tag){
-                    if (tag===attrs.tag) validTag = true;
-                  });
-                  return validTag;
+                if (!!targetedTags && _.size(targetedTags)>0) {
+                  // Only show this ad if there is no ad tag require or the ad tag matches the tag provided
+                  if (_.size(ad.tags)>0 && _.size(_.intersection(targetedTags,ad.tags))>0) return true;
+                  return false;
                 }
+                // If this unit requires a tag and there isn't one, don't show this ad
+                if (_.size(ad.tags)>0) return false;
                 return true;    
               });
-      var randomAd = _.random(_.size(ads)-1);
-      scope.displayAd = ads[randomAd].ad; 
+      
+      if (_.size(ads)>0) {
+        var randomAd = _.random(_.size(ads)-1);
+        scope.displayAd = ads[randomAd].ad; 
+      }
       // End of silly hack
 
       // googletag.cmd.push(function() {
