@@ -11,7 +11,7 @@
   </span>
 </div>
 
-<div class="pagination btn-group">
+<div class="pagination btn-group" ng-hide="pagination.getMaxPage()<2">
   <div
     class="btn"
     ng-class="{disabled: pagination.isFirst()}"
