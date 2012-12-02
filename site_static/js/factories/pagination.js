@@ -2,7 +2,7 @@ App.factory('pagination', [
   function() {
     var currentPage = 0;
     var maxPages = 0;
-    var elementsPerPage = 2;
+    var elementsPerPage = 10;
     var items = [];
 
     function setPage(page) {

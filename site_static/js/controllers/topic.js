@@ -4,11 +4,21 @@ App.controller('TopicCtrl', [
   'models',
   'pagination',
   '$timeout',
+  'topicService',
   'VOTES_REFRESH_INTERVAL',
   function($scope, $routeParams, models, pagination, $timeout,
-          VOTES_REFRESH_INTERVAL) {
+          topicService, VOTES_REFRESH_INTERVAL) {
 
     $scope.pagination = pagination;
+
+    // Is it a year search?
+    if (topicService.isYear($routeParams.year)) {
+      $scope.yearFilter = $routeParams.year;
+    }
+
+    if (topicService.isMonth($routeParams.month)) {
+      $scope.monthFilter = $routeParams.month;
+    }
 
     $scope.topic = getTopicInfo();
 
@@ -27,6 +37,7 @@ App.controller('TopicCtrl', [
     });
 
     function refreshEntries(entries) {
+      topicService.applyFilters(entries, $scope.yearFilter, $scope.monthFilter);
       pagination.setItems(_.sortBy(entries,
                               function(n) {
                                 return -n.number_of_votes;
