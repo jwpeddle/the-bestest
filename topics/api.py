@@ -38,6 +38,8 @@ class VoteResource(ModelResource):
         authentication = Authentication()
         authorization = Authorization()
         always_return_data = True
+        filtering = {'entry_id': ['exact']}
+        limit = 9999
 
 
 class TagResource(ModelResource):
