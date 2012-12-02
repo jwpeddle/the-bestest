@@ -9,8 +9,9 @@ App.directive('questionHeader', function(){
         return false;
       }
 
-      var getHeaderWidth = function() {
-        var $this = element.find('span');
+      var getHeaderWidth = function(elem) {
+        if (!elem) elem = 'span';
+        var $this = element.find(elem);
         return $this.width();
       };
 
@@ -18,10 +19,17 @@ App.directive('questionHeader', function(){
         if (!name) return;
         scope.name = name;
 
+        element.find('h1').removeClass('short-name');
+debugger;
         var newWidth;
+        var smallWidth;
         setTimeout(function(){
           newWidth = getHeaderWidth();
-          element.find('h1').width(newWidth);
+          smallWidth = getHeaderWidth('small');
+          if (newWidth > smallWidth)
+            element.find('h1').width(newWidth);
+          else
+            element.find('h1').addClass('short-name');
         }, 2000);
       });
 

@@ -22,6 +22,11 @@ h1 small.pull-right {
   margin-left: 4px;
 }
 
+/*h1.short-name .pull-right {
+  float: none;
+  display: inline-block;
+}*/
+
 /* TOPICS */
 
 .answer-row {
