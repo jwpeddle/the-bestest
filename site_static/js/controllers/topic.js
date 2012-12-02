@@ -5,10 +5,11 @@ App.controller('TopicCtrl', [
   'pagination',
   '$timeout',
   '$rootScope',
+  '$location',
   'topicService',
   'VOTES_REFRESH_INTERVAL',
   function($scope, $routeParams, models, pagination, $timeout,
-          $rootScope, topicService, VOTES_REFRESH_INTERVAL) {
+          $rootScope, $location, topicService, VOTES_REFRESH_INTERVAL) {
 
     $scope.pagination = pagination;
 
@@ -34,8 +35,8 @@ App.controller('TopicCtrl', [
       models.Tag.create($routeParams.topic_id, tag);
     };
 
-    $scope.removeTag = function(topic, tag) {
-      models.Topic.removeTag(topic, tag);
+    $scope.goToTag = function(tag) {
+      $location.path('/tag/' + tag.id);
     };
 
     $scope.addVote = function(entry) {
@@ -49,7 +50,6 @@ App.controller('TopicCtrl', [
     });
 
     function refreshEntries(entries) {
-      console.log("REFRESH ENTRIES");
       topicService.applyFilters(entries, $scope.yearFilter, $scope.monthFilter);
       pagination.setItems(_.sortBy(entries,
                               function(n) {
