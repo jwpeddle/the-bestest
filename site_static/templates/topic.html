@@ -1,7 +1,7 @@
 <div toggle="!!topic.name" class="hide">
 <question-header ask="topic.name" year="topic.year" location="topic.location"></question-header>
 
-<div>
+<div class="topic-tags">
   <span
     style="margin:2px"
     ng-repeat="tag in topic.tags"
@@ -61,28 +61,37 @@
 
 </div>
 
-
-<div class="control-group">
-  <input ng-model="newEntry">
-  <div
-    class="btn"
-    ng-disabled="!newEntry"
-    ng-click="addNewEntry(newEntry)">
-    Add new answer!!!
-  </div>
-</div>
-
-<div class="control-group">
-  <input ng-model="newTag">
-  <div
-    class="btn"
-    ng-disabled="!newTag"
-    ng-click="addNewTag(newTag)">
-    Add new tag!!!
-  </div>
-</div>
-
 <chart topic="topic">
   <div class="chart" style="height:300px;"></div>
 </chart>
+
+<div class="fixed-bottom span8">
+  <input ng-model="newEntry" placeholder="Add Answer">
+  <button
+    class="btn"
+    ng-disabled="!newEntry"
+    ng-click="addNewEntry(newEntry)">
+    Add
+  </button>
+
+
+  <input ng-model="newTag" placeholder="Add a tag">
+  <button
+    class="btn"
+    ng-disabled="!newTag"
+    ng-click="addNewTag(newTag)">
+    Add
+  </button>
+
+  <a href="/visualize/{{topic.id}}" class="btn icon-bar-chart pull-right"> Graph votes over time</a>
 </div>
+
+<!-- <div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner" style="background:transparent; border: 0;">
+    <div class="container-fluid" style="padding-left: 0">
+      <div class="span8" style="background: #ccc;">Test</div>
+      <div class="span4" style="background: transparent;">Test</div>
+    </div>
+  </div>
+</div>
+</div> -->

@@ -66,6 +66,10 @@ h1 small.pull-right {
   font-size: 85%;
 }
 
+.topic-tags span {
+  cursor: pointer;
+}
+
 /* PAGINATION */
 .pagination .page-numbers {
   background: #ffffff;
@@ -134,4 +138,13 @@ h1 small.pull-right {
 
 .clearfix {
   clear: both;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  margin-left: 0 !important;
+  padding: 10px;
 }
