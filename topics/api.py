@@ -32,6 +32,8 @@ class TopicResource(ModelResource):
 
 
 class VoteResource(ModelResource):
+    entry_id = fields.ToOneField('topics.api.EntryResource', 'entry')
+
     class Meta:
         queryset = Vote.objects.all()
         authentication = Authentication()

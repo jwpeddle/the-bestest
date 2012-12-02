@@ -1,7 +1,8 @@
 App.factory('models', [
   '$resource',
+  '$rootScope',
   'TASTYPIE_BASE',
-  function($resource, TASTYPIE_BASE) {
+  function($resource, $rootScope, TASTYPIE_BASE) {
     var Topic,
         Entry;
 
@@ -22,14 +23,30 @@ App.factory('models', [
           topic_id: toTastyResource('topic', topicId)
         },
         function(response) {
-          console.log("Created!");
+          $rootScope.$broadcast('bestest.models.entry.created', response);
         }
+      );
+    };
+
+    Vote = $resource(TASTYPIE_BASE + 'vote/:voteId');
+    Vote.create = function(entryId) {
+
+      if (!entryId) throw new Error("Answer ID is mandatory");
+
+      Vote.save(
+      {
+        entry_id: toTastyResource('entry', entryId)
+      },
+      function(response) {
+        $rootScope.$broadcast('bestest.models.vote.created', response);
+      }
       );
     };
 
     return {
       Topic: Topic,
-      Entry: Entry
+      Entry: Entry,
+      Vote: Vote
     };
   }
   ]);
