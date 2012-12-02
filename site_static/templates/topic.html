@@ -45,7 +45,7 @@
   </div>
   <div class="span10" ng-bind="entry.name"></div>
   <div class="span1" ng-bind="entry.number_of_votes"></div>
-  <small ng-show="entry.number_of_votes">Last voted {{ entry | lastVoted }}</small>
+  <small ng-show="entry.number_of_votes">Last voted {{ entry.last_voted | momentDate}}</small>
   <small ng-hide="entry.number_of_votes">This item has no votes</small>
   <div class="btn pull-right" ng-click="addVote(entry)">+</div>
 </div>

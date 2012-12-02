@@ -13,3 +13,11 @@ App.filter('lastVoted', function(){
     return moment(lastVote).fromNow();
   };
 });
+
+App.filter('momentDate', function() {
+  return function(date) {
+    if (!date) return "";
+
+    return moment(date).fromNow();
+  };
+});
