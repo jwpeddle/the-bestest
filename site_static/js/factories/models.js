@@ -19,12 +19,11 @@ App.factory('models', [
 
       if (!topic || !tag) throw new Error("Topic and tag are mandatory");
 
-console.log(topic.tags.length);
       tags = _.filter(topic.tags, function(t) {
         console.log(t.name, tag.name);
         return t.name !== tag.name;
       });
-console.log(tags.length);
+
       $http.put(toTastyResource('topic', topic.id), {
         tags: _.map(tags, function(tag) {return toTastyResource('tag', tag.id);}),
         entries: topic.entries

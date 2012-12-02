@@ -4,10 +4,11 @@ App.controller('TopicCtrl', [
   'models',
   'pagination',
   '$timeout',
+  '$rootScope',
   'topicService',
   'VOTES_REFRESH_INTERVAL',
   function($scope, $routeParams, models, pagination, $timeout,
-          topicService, VOTES_REFRESH_INTERVAL) {
+          $rootScope, topicService, VOTES_REFRESH_INTERVAL) {
 
     $scope.pagination = pagination;
 
@@ -66,6 +67,9 @@ App.controller('TopicCtrl', [
     function getTopicInfo() {
       return  models.Topic.get({topicId: $routeParams.topic_id}, function(response) {
         $scope.topic = response;
+        if (!!response.tags && response.tags.length) {
+          $rootScope.$broadcast("bestest.tags.loaded", response.tags);
+        }
         refreshEntries(response.entries);
       });
     }
