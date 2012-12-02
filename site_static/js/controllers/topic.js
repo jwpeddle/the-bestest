@@ -44,6 +44,10 @@ App.controller('TopicCtrl', [
       models.Vote.create(entry.id);
     };
 
+    $scope.expandAnswer = function(index) {
+      expandAnswerId = index;
+    };
+
     $scope.$on("bestest.models.entry.created", function(m, entry) {
       $scope.topic.entries.push(entry);
       refreshEntries($scope.topic.entries);

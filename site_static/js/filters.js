@@ -9,7 +9,7 @@ App.filter('lastVoted', function(){
         lastVote = i.date;
       }
     });
-
+    if (!moment(lastVote)) return;
     return moment(lastVote).fromNow();
   };
 });

@@ -25,7 +25,7 @@ h1 small.pull-right {
 /* TOPICS */
 
 .answer-row {
-  height: 40px;
+  height: 30px;
   line-height: 30px;
   font-size: 150%;
   color: #757575;
@@ -43,12 +43,22 @@ h1 small.pull-right {
 
 .answer-row .vote-up {
   color: #757575;
-  font-size: 40px;
-  line-height: 40px;
+  position: relative;
+}
+
+.answer-row .vote-up i {
+  line-height: 30px;
+  font-size: 42px;
+  position: absolute;
+  top: 10px;
 }
 .answer-row .vote-up:hover {
   color: #222222;
   cursor: pointer;
+}
+
+.answer-row .expanded-row {
+  font-size: 85%;
 }
 
 /* PAGINATION */
@@ -115,4 +125,8 @@ h1 small.pull-right {
 
 .text-center {
   text-align: center;
+}
+
+.clearfix {
+  clear: both;
 }
