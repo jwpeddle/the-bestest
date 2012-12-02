@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from topics.models import Entry, Topic, Vote
+from topics.models import Entry, Topic, Vote, Tag
 
 
 class EntryInline(admin.TabularInline):
@@ -18,7 +18,7 @@ class EntryAdmin(admin.ModelAdmin):
 class TopicAdmin(admin.ModelAdmin):
     inlines = [EntryInline]
 
-
 admin.site.register(Entry, EntryAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Vote)
+admin.site.register(Tag)

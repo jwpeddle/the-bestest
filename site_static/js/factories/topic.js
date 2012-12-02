@@ -14,6 +14,7 @@ App.factory('topicService', [
     function filterByYear(entries, year) {
       _.each(entries, function(entry) {
         entry.votes = _.filter(entry.votes, function(vote) {
+          console.log(vote.date);
           return vote.date.substr(0, 4) === year;
         });
         entry.number_of_votes = entry.votes.length;

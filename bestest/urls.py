@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.views.generic import RedirectView, TemplateView
 from tastypie.api import Api
 
-from topics.api import EntryResource, TopicResource, VoteResource
+from topics.api import EntryResource, TopicResource, VoteResource, TagResource
 
 admin.autodiscover()
 autofixture.autodiscover()
@@ -13,6 +13,7 @@ api = Api(api_name='v1')
 api.register(EntryResource())
 api.register(TopicResource())
 api.register(VoteResource())
+api.register(TagResource())
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),

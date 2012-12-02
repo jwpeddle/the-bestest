@@ -23,7 +23,18 @@ App.controller('TopicCtrl', [
     $scope.topic = getTopicInfo();
 
     $scope.addNewEntry = function(entry) {
+      $scope.newEntry = "";
       models.Entry.create($routeParams.topic_id, entry);
+    };
+
+    $scope.addNewTag = function(tag) {
+      $scope.topic.tags.push({name: tag});
+      $scope.newTag = "";
+      models.Tag.create($routeParams.topic_id, tag);
+    };
+
+    $scope.removeTag = function(topic, tag) {
+      models.Topic.removeTag(topic, tag);
     };
 
     $scope.addVote = function(entry) {

@@ -4,6 +4,16 @@
   <small>for 2012</small>
 </h1>
 
+<div>
+  <span
+    style="margin:2px"
+    ng-repeat="tag in topic.tags"
+    ng-bind="tag.name"
+    ng-click="removeTag(topic, tag)"
+    class="label label-warning">
+  </span>
+</div>
+
 <div class="pagination btn-group">
   <div
     class="btn"
@@ -48,6 +58,16 @@
     ng-disabled="!newEntry"
     ng-click="addNewEntry(newEntry)">
     Add new answer!!!
+  </div>
+</div>
+
+<div class="control-group">
+  <input ng-model="newTag">
+  <div
+    class="btn"
+    ng-disabled="!newTag"
+    ng-click="addNewTag(newTag)">
+    Add new tag!!!
   </div>
 </div>
 
