@@ -6,7 +6,7 @@ App.directive('chart', [
       link: function(scope, elem, attrs) {
         scope.$watch(attrs.topic, function(topic) {
           if (topic && topic.entries) {
-            var entries = topic.entries.slice(0, 3);
+            var entries = topic.entries.slice(0, 1);
             for (var e = 0; e < entries.length; e++) {
               var entry = angular.copy(entries[e]);
               var votes = $http.get('/api/v1/vote', {
