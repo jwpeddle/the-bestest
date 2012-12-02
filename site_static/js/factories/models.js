@@ -44,7 +44,7 @@ App.factory('models', [
           topic_id: toTastyResource('topic', topicId)
         },
         function(response) {
-
+          $rootScope.$broadcast('bestest.models.entry.created', response);
         }
       );
     };
@@ -76,7 +76,7 @@ App.factory('models', [
       Tag.save(
         {
           name: tag,
-          topic_id: toTastyResource('topic', topicId)
+          topics: [toTastyResource('topic', topicId)]
         },
         function(response) {
 

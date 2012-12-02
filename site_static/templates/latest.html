@@ -1,7 +1,8 @@
 <div>
   <h3>Latest votes</h3>
+  <p>Vote in one of the latest topics or <a ng-click="createTopic()">create your own.</a></p>
   <ul>
-    <li ng-repeat="entry in latestEntries">
+    <li ng-repeat="entry in latestEntries" ng-show="entry.name">
     {{ entry.name }} for <a href="/{{ entry.topic_id }}">{{entry.topic.name}}</a> was voted {{ entry.last_voted | momentDate}}
     </li>
   </ul>

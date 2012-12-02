@@ -3,8 +3,9 @@ App.controller('LatestCtrl', [
   'models',
   '$http',
   '$filter',
+  '$location',
   'TASTYPIE_BASE',
-  function($scope, models, $http, $filter, TASTYPIE_BASE) {
+  function($scope, models, $http, $filter, $location, TASTYPIE_BASE) {
     $scope.latestEntries = models.Entry.get(function(response) {
       var entries,
           topicIds,
@@ -23,9 +24,12 @@ App.controller('LatestCtrl', [
                     return (topic.id == entry.topic_id);
                   });
                 });
-                $scope.latestEntries = entries;
+                $scope.latestEntries = entries.slice(0, 10);
               });
 
+      $scope.createTopic = function() {
+        $location.path("/create-topic");
+      };
 
     });
   }
