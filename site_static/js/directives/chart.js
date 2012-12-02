@@ -21,7 +21,7 @@ App.directive('chart', [
                   aggregate.push(mdate.format('YYYYMM'));
                 }
                 aggregate = _.countBy(aggregate, function(yyyymm){return moment(yyyymm, 'YYYYMM').valueOf()});
-                aggregate = _.map(aggregate, function(value, key){return [key, value]});
+                aggregate = _.map(aggregate, function(value, key){return [key, value * 10]});
                 $.plot(elem.find('.chart'), [aggregate], {xaxis: {mode: "time", minTickSize: [1, "month"]}});
               });
             }
@@ -31,3 +31,25 @@ App.directive('chart', [
     }
   }
 ]);
+                     //__               )
+            //_  \    | _\             Q)  /
+           /// \  \   /  (            Q)  /
+          ///_ |     / _/     \ /     )       /|
+   //\      \- |     |/       .V.    _       / |______
+    //\      \_\_/---------_________/o\     /        /
+            //( |                      |   / /|__   /_____
+         //__/  |      _-____   /V-V-V-V    /   /     ___/
+        //(      |   v |     \  \^_^_^          \    <______
+  //___    \  )   \    v \    \_____)     |\ |\ \    _______\
+         //( / __/  \  vv  \              | \| \|    \
+         ///  \       \  vv  \            \       |\  \
+        //( |  \ _      \      \           \  |\  | \  \
+         //\ \   _)        \     \          \ | \ |  \ |
+           //\   _)         |     |          \|  \|   \|
+        ///    \__)       |\|    |
+       ///        ^ /\  |\|/    /
+                //\\__\_|/    /         TROGDOR
+                 //\_________/            the
+                      //|  |           BURNiNATOR
+                      //|  |____
+                      //|___
