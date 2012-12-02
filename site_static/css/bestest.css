@@ -36,8 +36,8 @@ h1 small.pull-right {
   color: #757575;
 }
 
-.answer-row .rank, 
-.answer-row .name, 
+.answer-row .rank,
+.answer-row .name,
 .answer-row .votes {
   display: inline-block;
 }
@@ -134,4 +134,7 @@ h1 small.pull-right {
 
 .clearfix {
   clear: both;
+}
+.entry-selected {
+  background-color: orange;
 }

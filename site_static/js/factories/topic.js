@@ -14,7 +14,7 @@ App.factory('topicService', [
     function filterByYear(entries, year) {
       _.each(entries, function(entry) {
         entry.votes = _.filter(entry.votes, function(vote) {
-          return vote.date.substr(0, 4) === year;
+          return vote.date.substr(0, 4) == year;
         });
         entry.number_of_votes = entry.votes.length;
       });
@@ -24,7 +24,7 @@ App.factory('topicService', [
     function filterByMonth(entries, year, month) {
       _.each(entries, function(entry) {
         entry.votes = _.filter(entry.votes, function(vote) {
-          return vote.date.substr(0, 4) === year && vote.date.substr(5, 2) === month;
+          return vote.date.substr(0, 4) == year && vote.date.substr(5, 2) == month;
         });
         entry.number_of_votes = entry.votes.length;
       });

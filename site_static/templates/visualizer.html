@@ -1,0 +1,30 @@
+<div>
+<question-header ask="topic.name" year="topic.year" location="topic.location"></question-header>
+
+<div
+  ng-repeat="entry in entries"
+  ng-click="addToAggregates(entry)"
+  ng-class="isDrawn(entry)"
+  class="row-fluid answer-row clearfix">
+  <div class="span1 rank text-right"
+    ng-bind="$index + 1">
+  </div>
+  <div class="span9 name" ng-bind="entry.name"></div>
+  <div class="span1 votes text-right" ng-bind="entry.number_of_votes"></div>
+  <!-- <div class="span1 vote-up" ng-click="addVote(entry)"><i class="icon-sort-up"></i></div> -->
+  <!-- <small ng-show="entry.number_of_votes">Last voted {{ entry | lastVoted }}</small>
+  <small ng-hide="entry.number_of_votes">This item has no votes</small> -->
+
+</div>
+
+<chart-offline aggregates="aggregates">
+  <div class="chart" style="height:300px;"></div>
+</chart-offline>
+
+<div class="btn-group">
+  <div class="btn" ng-click="yearFilter=null" ng-class="{'btn-inverse': yearFilter==null}">All</div>
+  <div class="btn" ng-click="yearFilter=2012" ng-class="{'btn-inverse': yearFilter==2012}">2012</div>
+  <div class="btn" ng-click="yearFilter=2011" ng-class="{'btn-inverse': yearFilter==2011}">2011</div>
+</div>
+
+</div>
