@@ -37,7 +37,7 @@
 <div
   ng-repeat="entry in pagination.getSelection()"
   class="answer-row clearfix">
-  <div class="row-fluid" delayed-hover="$index">
+  <div class="row-fluid"><!--  delayed-hover="$index"> -->
     <div class="span1 rank text-right"
       ng-bind="$index + 1 + (pagination.getCurrentPage())*pagination.getElementsPerPage()">
     </div>

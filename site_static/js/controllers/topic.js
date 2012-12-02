@@ -75,7 +75,8 @@ App.controller('TopicCtrl', [
         $scope.topic = response;
 // Do this dynamically
 $scope.topic.location = 'St. John\'s';
-$scope.topic.year = 2011;
+$scope.topic.year = null;//2011;
+        //$scope.$emit('bestest.topic.changed', $scope.topic);
         if (!!response.tags && response.tags.length) {
           $rootScope.$broadcast("bestest.tags.loaded", response.tags);
         }
