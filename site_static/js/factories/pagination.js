@@ -15,6 +15,9 @@ App.factory('pagination', [
         maxPages = Math.max(Math.ceil(numberOfItems / elementsPerPage), 1);
     }
 
+    function getItems() {
+      return items;
+    }
 
     function setItems(_items) {
       if (!!_items) {
@@ -84,6 +87,7 @@ App.factory('pagination', [
       getSelection: getSelection,
       getCurrentPage: getCurrentPage,
       getMaxPage: getMaxPage,
+      getItems: getItems,
       setItems: setItems,
       getElementsPerPage: getElementsPerPage,
       setElementsPerPage: setElementsPerPage

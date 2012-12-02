@@ -6,7 +6,6 @@ App.controller('LatestCtrl', [
   'TASTYPIE_BASE',
   function($scope, models, $http, $filter, TASTYPIE_BASE) {
     $scope.latestEntries = models.Entry.get(function(response) {
-      console.log(response);
       var entries,
           topicIds,
           topics;
@@ -24,7 +23,6 @@ App.controller('LatestCtrl', [
                     return (topic.id == entry.topic_id);
                   });
                 });
-                console.log(entries);
                 $scope.latestEntries = entries;
               });
 

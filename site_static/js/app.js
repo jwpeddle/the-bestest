@@ -13,6 +13,7 @@ var App = angular.module('ngView', [
       topicURL: '/:topic_id',
       topicByYearURL: '/:topic_id/:year',
       topicByMonthURL: '/:topic_id/:year/:month',
+      topicsByTagURL: '/tag/:tag_id',
       advertiseURL: '/advertise',
       latestURL: '/latest'
     };
@@ -26,6 +27,11 @@ var App = angular.module('ngView', [
     $routeProvider.when(routerService.latestURL, {
       templateUrl: '/static/templates/latest.html',
       controller: 'LatestCtrl'
+    });
+
+    $routeProvider.when(routerService.topicsByTagURL, {
+      templateUrl: '/static/templates/by-tag.html',
+      controller: 'ByTagCtrl'
     });
 
     $routeProvider.when(routerService.topicURL, {

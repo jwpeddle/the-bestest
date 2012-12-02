@@ -1,0 +1,8 @@
+<div>
+  <h3>Topics with tag {{ tag.name }}</h3>
+  <ul>
+    <li ng-repeat="topic in tagTopics">
+      <a href="/{{topic.id}}">{{ topic.name }} ({{topic.entries.length}} entries)</a>
+    </liv>
+  </ul>
+</div>

@@ -6,12 +6,12 @@
     style="margin:2px"
     ng-repeat="tag in topic.tags"
     ng-bind="tag.name"
-    ng-click="removeTag(topic, tag)"
+    ng-click="goToTag(tag)"
     class="label label-warning">
   </span>
 </div>
 
-<div class="pagination btn-group">
+<div class="pagination btn-group" ng-hide="pagination.getMaxPage()<2">
   <div
     class="btn"
     ng-class="{disabled: pagination.isFirst()}"
@@ -83,6 +83,6 @@
 </div>
 
 <chart topic="topic">
-  <div class="chart" style="width:1000px; height:300px;"></div>
+  <div class="chart" style="height:300px;"></div>
 </chart>
 </div>
