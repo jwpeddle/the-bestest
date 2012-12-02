@@ -5,6 +5,7 @@ App.controller('MainCtrl', [
 	$scope.favourites = [{text:'hackathon in Toronto',url:''}, {text:'dog names',url:''}, {text:'way to relieve stress',url:''}, {text:'development IDE',url:''},{text:'things to do in Las Vegas',url:''}];
 
   	$scope.$on('bestest.tags.loaded', function(topic){
+  		console.log('topic',topic);
   		if (!! topic && !!topic.tags) {
   			$scope.favourites = null;
 

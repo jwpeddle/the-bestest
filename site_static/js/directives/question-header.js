@@ -20,7 +20,6 @@ App.directive('questionHeader', function(){
         scope.name = name;
 
         element.find('h1').removeClass('short-name');
-debugger;
         var newWidth;
         var smallWidth;
         setTimeout(function(){
