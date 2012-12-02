@@ -35,7 +35,7 @@
   </div>
   <div class="span10" ng-bind="entry.name"></div>
   <div class="span1" ng-bind="entry.number_of_votes"></div>
-  <span>Last voted on {{ entry | lastVoted }}
+  <span>Last voted {{ entry | lastVoted }}
   <div class="btn pull-right" ng-click="addVote(entry)">+</div>
 </div>
 
@@ -49,3 +49,5 @@
     Add new answer!!!
   </div>
 </div>
+
+<chart topic="topic"></chart>
