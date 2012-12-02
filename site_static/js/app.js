@@ -16,6 +16,7 @@ var App = angular.module('ngView', [
       topicsByTagURL: '/tag/:tag_id',
       advertiseURL: '/advertise',
       latestURL: '/latest',
+      visualizerURL: '/visualizer/:topic_id',
       createTopicURL: '/create-topic'
     };
 
@@ -33,6 +34,11 @@ var App = angular.module('ngView', [
     $routeProvider.when(routerService.topicsByTagURL, {
       templateUrl: '/static/templates/by-tag.html',
       controller: 'ByTagCtrl'
+    });
+
+    $routeProvider.when(routerService.visualizerURL, {
+      templateUrl: '/static/templates/visualizer.html',
+      controller: 'VisualizerCtrl'
     });
 
     $routeProvider.when(routerService.createTopicURL, {

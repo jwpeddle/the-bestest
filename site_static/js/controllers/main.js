@@ -26,7 +26,7 @@ App.controller('MainCtrl', [
   		}
 
 		if (!$scope.favourites) {
-			$scope.favourites = [{text:'hackathon in Toronto',url:''}, {text:'dog names',url:''}, {text:'ways to relieve stress',url:''}, {text:'development IDE',url:''},{text:'things to do in Las Vegas',url:''}];
+			$scope.favourites = [{text:'hackathon in Toronto',url:''}, {text:'dog names',url:''}, {text:'ways to relieve stress',url:''}, {text:'development IDE',url:''},{text:'thing to do in Las Vegas',url:''}];
 		}
   	});
     
