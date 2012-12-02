@@ -20,7 +20,10 @@ App.directive('carousel', function() {
         scope.failed = true;
         return;
       }
-      scope.items = scope.$eval(attrs.items);
+      
+      scope.$watch(attrs.items,function(val) {
+        scope.items = val;
+      });
 
       if (!attrs.id) {
         console.error('Angular Bootstrap Carousel requires an ID.');

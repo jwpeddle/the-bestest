@@ -74,7 +74,7 @@ App.controller('TopicCtrl', [
       return  models.Topic.get({topicId: $routeParams.topic_id}, function(response) {
         $scope.topic = response;
 // Do this dynamically
-$scope.topic.location = 'St. John\'s';
+$scope.topic.location = 'Toronto';
 $scope.topic.year = null;//2011;
         //$scope.$emit('bestest.topic.changed', $scope.topic);
         if (!!response.tags && response.tags.length) {

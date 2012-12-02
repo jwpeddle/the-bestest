@@ -2,18 +2,19 @@ App.controller('MainCtrl', [
   '$scope',
   function($scope) {
 
-	$scope.favourites = [{text:'hackathon in Toronto',url:''}, {text:'dog names',url:''}, {text:'way to relieve stress',url:''}, {text:'development IDE',url:''},{text:'things to do in Las Vegas',url:''}];
+  	var favoritesDefault = [{text:'hackathon in Toronto',url:''}, {text:'dog names',url:''}, {text:'way to relieve stress',url:''}, {text:'development IDE',url:''},{text:'things to do in Las Vegas',url:''}];
+	$scope.favourites = favoritesDefault
 
-  	$scope.$on('bestest.tags.loaded', function(topic){
-  		if (!! topic && !!topic.tags) {
+  	$scope.$on('bestest.tags.loaded', function(i, tags){
+  		if (!!tags) {
   			$scope.favourites = null;
 
-  			var isBurger = !!_.find(topic.tags, function(tag){ return tag ==="Burger" });
-  			var isDrag = !!_.find(topic.tags, function(tag){ return tag ==="Drag" });
-  			var isEreader = !!_.find(topic.tags, function(tag){ return tag ==="eReader" });
+  			var isBurger = !!_.find(tags, function(tag){ return tag.name ==="Burger" });
+  			var isDrag = !!_.find(tags, function(tag){ return tag.name ==="Drag" });
+  			var isEreader = !!_.find(tags, function(tag){ return tag.name ==="eReader" });
 
   			if (isBurger) {
-  				$scope.favourites = [{text:'burrito',url:''}, {text:'milkshake',url:''}, {text:'fast food burger',url:''},{text:'roti',url:''}];
+  				$scope.favourites = [{text:'burrito in Toronto',url:''}, {text:'milkshake in Toronto',url:''}, {text:'fast food burger in Toronto',url:''},{text:'roti in Toronto',url:''}];
   				$scope.inToronto = true;
   			}
 
@@ -27,7 +28,7 @@ App.controller('MainCtrl', [
   		}
 
 		if (!$scope.favourites) {
-			$scope.favourites = [{text:'hackathon in Toronto',url:''}, {text:'dog names',url:''}, {text:'ways to relieve stress',url:''}, {text:'development IDE',url:''},{text:'thing to do in Las Vegas',url:''}];
+			$scope.favourites = favoritesDefault;
 		}
   	});
     
