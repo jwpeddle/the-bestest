@@ -26,7 +26,7 @@ class Entry(models.Model):
 
 class Vote(models.Model):
     entry = models.ForeignKey(Entry, related_name='votes')
-    date = models.DateTimeField()
+    date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-date']

@@ -49,6 +49,7 @@ App.controller('TopicCtrl', [
     });
 
     function refreshEntries(entries) {
+      console.log("REFRESH ENTRIES");
       topicService.applyFilters(entries, $scope.yearFilter, $scope.monthFilter);
       pagination.setItems(_.sortBy(entries,
                               function(n) {
@@ -62,6 +63,7 @@ App.controller('TopicCtrl', [
       entry.votes.push({
         date: moment().format("YYYY-MM-DD")
       });
+      refreshEntries(pagination.getItems());
     }
 
     function getTopicInfo() {
