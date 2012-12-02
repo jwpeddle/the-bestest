@@ -80,13 +80,8 @@
 
           <h3>People on <i class="icon-twitter twitter-logo" title="Twitter"></i> are asking...</h3>
 
-          <twitter-questions>
-            <div ng-repeat="tweet in tweets" class="twitter-row clearfix" ng-class="{'alt':$index%2!=0}">
-              <a href="http://twitter.com/{{tweet.handle}}"><img ng-src="/static/twitter-profiles/{{tweet.handle}}.jpg" class="pull-left twitter-avatar"></a>
-              <small><a href="http://twitter.com/{{tweet.handle}}" class="handle muted">@{{tweet.handle}}</a></small><br>
-              <span ng-bind-html="parseTweet(tweet.quote)"></span>
-            </div>
-          </twitter-questions>
+          <a class="twitter-timeline" href="https://twitter.com/search?q=%22what+is+the+best%22" data-widget-id="275271423965143040">Tweets about ""what is the best""</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
         </div>
       </div>
