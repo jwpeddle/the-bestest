@@ -11,12 +11,24 @@ var App = angular.module('ngView', [
     var routerService = {
       invalidURL: '/404',
       topicURL: '/:topic_id',
+      topicByYearURL: '/:topic_id/:year',
+      topicByMonthURL: '/:topic_id/:year/:month',
       advertiseURL: '/advertise'
     };
 
     $locationProvider.html5Mode(true);
 
     $routeProvider.when(routerService.topicURL, {
+      templateUrl: '/static/templates/topic.html',
+      controller: 'TopicCtrl'
+    });
+
+    $routeProvider.when(routerService.topicByYearURL, {
+      templateUrl: '/static/templates/topic.html',
+      controller: 'TopicCtrl'
+    });
+
+    $routeProvider.when(routerService.topicByMonthURL, {
       templateUrl: '/static/templates/topic.html',
       controller: 'TopicCtrl'
     });

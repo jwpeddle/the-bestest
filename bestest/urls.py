@@ -1,3 +1,4 @@
+import autofixture
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import RedirectView, TemplateView
@@ -6,6 +7,7 @@ from tastypie.api import Api
 from topics.api import EntryResource, TopicResource, VoteResource
 
 admin.autodiscover()
+autofixture.autodiscover()
 
 api = Api(api_name='v1')
 api.register(EntryResource())
