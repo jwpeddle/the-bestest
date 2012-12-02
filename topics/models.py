@@ -21,7 +21,10 @@ class Entry(models.Model):
 
     @property
     def last_voted(self):
-        return self.votes.order_by('-date')[0].date
+        try:
+            return self.votes.order_by('-date')[0].date
+        except:
+            return 0
 
 
 class Vote(models.Model):

@@ -15,7 +15,8 @@ var App = angular.module('ngView', [
       topicByMonthURL: '/:topic_id/:year/:month',
       topicsByTagURL: '/tag/:tag_id',
       advertiseURL: '/advertise',
-      latestURL: '/latest'
+      latestURL: '/latest',
+      createTopicURL: '/create-topic'
     };
 
     $locationProvider.html5Mode(true);
@@ -32,6 +33,11 @@ var App = angular.module('ngView', [
     $routeProvider.when(routerService.topicsByTagURL, {
       templateUrl: '/static/templates/by-tag.html',
       controller: 'ByTagCtrl'
+    });
+
+    $routeProvider.when(routerService.createTopicURL, {
+      templateUrl: '/static/templates/create-topic.html',
+      controller: 'CreateTopicCtrl'
     });
 
     $routeProvider.when(routerService.topicURL, {
