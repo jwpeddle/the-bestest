@@ -10,6 +10,6 @@ App.filter('lastVoted', function(){
       }
     });
 
-    return lastVote;
+    return moment(lastVote).fromNow();
   };
 });
