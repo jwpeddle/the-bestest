@@ -55,6 +55,9 @@ App.controller('TopicCtrl', [
     function getTopicInfo() {
       return  models.Topic.get({topicId: $routeParams.topic_id}, function(response) {
         $scope.topic = response;
+// Do this dynamically
+$scope.topic.location = 'St. John\'s';
+$scope.topic.year = 2011;
         refreshEntries(response.entries);
       });
     }
