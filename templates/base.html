@@ -2,10 +2,10 @@
 <html ng-app="ngView">
   <head>
     <title>The Bestest</title>
+    <script src="/static/lib/jquery/jquery.js"></script>
     <script src="/static/lib/angular/angular.js"></script>
     <script src="/static/lib/angular/angular-ui.min.js"></script>
     <script src="/static/lib/angular/angular-resource.min.js"></script>
-    <script src="/static/lib/jquery/jquery.js"></script>
     <script src="/static/lib/bootstrap/bootstrap.min.js"></script>
     <script src="/static/lib/underscore/underscore.js"></script>
     <script src="/static/lib/flot/jquery.flot.min.js"></script>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/static/lib/angular/angular-ui.min.css">
     <link rel="stylesheet" type="text-css" href="/static/lib/bootstrap/united.css">
     <link rel="stylesheet" type="text/css" href="/static/lib/bootstrap/font-awesome.css">
-    <!-- <link rel="stylesheet" type="text-css" href="/static/css/carousel.css"> -->
+    <link rel="stylesheet" type="text-css" href="/static/css/carousel.css">
     <link rel="stylesheet" type="text-css" href="/static/css/bestest.css">
     <!-- OTHER DEPENDENCIES -->
     <!-- <script src="/static/js/dfp-ad-tags.js"></script>-->
@@ -53,7 +53,8 @@
         </div>
         <div class="span4">
 
-          <carousel id="faavoritesCarousel" data-items="favorites"></carousel>
+          <div class="lead favourites-lead">What is your favourite</div>
+          <carousel id="favouritesCarousel" data-items="favourites"></carousel>
 
           <ad-tag ad-unit="The_Best" width="300" height="250">
             <!-- <div id="{{adUnitDivId}}" style=width:{{width}}px; height:{{height}}px;""></div> -->

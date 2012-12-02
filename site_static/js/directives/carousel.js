@@ -2,13 +2,12 @@ App.directive('carousel', function() {
 
   return {
     restrict: 'E',
-    templateUrl: '/carousel.html',
+    templateUrl: '/static/templates/carousel.html',
     scope: true,
     link: function(scope, element, attrs) {
       
       var rotationInterval = 5000;
       scope.failed = false;
-console.log(typeof element.carousel, element.carousel); return;
       // Can't do anything if carousel is not loaded
       if (typeof element.carousel !== "function") {
         console.error('Angular Bootstrap Carousel requires both jQuery and Bootstrap. One or the other is not loaded properly.');
@@ -32,7 +31,7 @@ console.log(typeof element.carousel, element.carousel); return;
       // Set scope defaults
       scope.id = attrs.id; // Carousel Element ID
       scope.hideBlockControls = false;
-      scope.hideArrowControls = false;
+      scope.hideArrowControls = true;
 
       // Remove the id tag from the directive element since it will be applied to the first child
       element.removeAttr('id');
@@ -67,7 +66,7 @@ console.log(typeof element.carousel, element.carousel); return;
       element.bind('slid',
         function(e) {
           setTickerIndex(element.find('.item.active').index());
-          scope.$apply();
+          //scope.$apply();
         }
       );
 

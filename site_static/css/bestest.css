@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
   h1 small {
@@ -16,9 +16,18 @@ h1 {
     display: block;
   }
 
-  /* ADVERTISEMENTS */
-  .advertise-here-link {
-    display: block;
-    text-align: right;
-    width: 300px;
-  }
+/* ADVERTISEMENTS */
+.advertise-here-link {
+  display: block;
+  text-align: right;
+  width: 300px;
+}
+
+/* CAROUSEL */
+.favourites-lead {
+  margin-bottom: 0;
+}
+
+.carousel a.active {
+  color: #97310E;
+}
